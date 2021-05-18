@@ -48,10 +48,17 @@
                 <ul>
                     <li><a href="admin_inicio">Inicio</a></li>
                     <li><a href="admin_nuestra_empresa">Nuestra empresa</a></li>
-                    <li class="drop-down"><a>Categorias</a>
+                    <li class="drop-down"><a href="admin_categorias">Categorias</a>
                         <ul>
-                            <li><a href="admin_servicios">Servicios</a>
+                            <?php
+                            foreach ($datos_categorias as $ct) {
+                            ?>
+                                <li><a href="admin_servicios"><?php echo $ct->categorias ?></a>
+                            <?php
+                                }
+                            ?>
                         </ul>
+
                     </li>
                     <li><a href="admin_roles">Roles</a></li>
                     <li><a href="admin_usuarios">Usuarios</a></li>

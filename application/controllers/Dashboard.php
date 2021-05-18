@@ -26,11 +26,14 @@ class Dashboard extends CI_Controller {
 		$this->load->model('model_servicios');
 		$this->load->model('model_roles');
 		$this->load->model('model_usuarios');
+		$this->load->model('model_categorias');
     }
 
 	public function index()
 	{
-		$this->load->view('layouts/Dashboard_header');
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
+
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Dashboard');
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -39,8 +42,9 @@ class Dashboard extends CI_Controller {
 	public function admin_inicio()
 	{
 		$datos_inicio['datos_inicio'] = $this->model_inicio->traer_datos_inicio();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
 
-		$this->load->view('layouts/Dashboard_header');
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Inicio',$datos_inicio);
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -49,8 +53,9 @@ class Dashboard extends CI_Controller {
 	public function admin_nuestra_empresa()
 	{
 		$datos_nuestra_empresa['datos_nuestra_empresa'] = $this->model_nuestra_empresa->traer_datos_nuestra_empresa();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
 
-		$this->load->view('layouts/Dashboard_header');
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Nuestra_empresa',$datos_nuestra_empresa);
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -59,8 +64,9 @@ class Dashboard extends CI_Controller {
 	public function admin_servicios()
 	{
 		$datos_servicios['datos_servicios'] = $this->model_servicios->traer_datos_servicos();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
 
-		$this->load->view('layouts/Dashboard_header');
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Servicios',$datos_servicios);
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -68,7 +74,9 @@ class Dashboard extends CI_Controller {
 
 	public function admin_contactenos()
 	{
-		$this->load->view('layouts/Dashboard_header');
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
+
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Contactenos');
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -77,8 +85,9 @@ class Dashboard extends CI_Controller {
 	public function admin_roles()
 	{
 		$datos_roles['datos_roles'] = $this->model_roles->traer_datos_roles();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
 
-		$this->load->view('layouts/Dashboard_header');
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Roles',$datos_roles);
 		$this->load->view('layouts/Dashboard_footer');
 
@@ -87,9 +96,21 @@ class Dashboard extends CI_Controller {
 	public function admin_usuarios()
 	{
 		$datos_usuarios['datos_usuarios'] = $this->model_usuarios->traer_datos_usuarios();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
 
-		$this->load->view('layouts/Dashboard_header');
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
 		$this->load->view('dashboard/Usuarios',$datos_usuarios);
+		$this->load->view('layouts/Dashboard_footer');
+
+	}
+
+	public function admin_categorias()
+	{
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
+		$datos_categorias['datos_categorias'] = $this->model_categorias->traer_datos_categorias();
+
+		$this->load->view('layouts/Dashboard_header',$datos_categorias);
+		$this->load->view('dashboard/Categorias',$datos_categorias);
 		$this->load->view('layouts/Dashboard_footer');
 
 	}
@@ -175,6 +196,18 @@ class Dashboard extends CI_Controller {
 		$id=$this->model_usuarios->insertar_datos($datos_usuarios);	
 
 		redirect(base_url().'dashboard/admin_usuarios');
+	}
+
+	public function agregar_categorias(){
+		$categorias=$this->input->post('categorias');
+		
+		$datos_categorias = array(
+		'categorias'         =>$categorias,
+		);
+
+		$id=$this->model_categorias->insertar_categorias($datos_categorias);	
+
+		redirect(base_url().'dashboard/admin_categorias');
 	}
 
 }

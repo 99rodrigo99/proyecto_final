@@ -43,9 +43,9 @@
                 <ul>
                     <li><a href="/ServigasdelHuila/">Inicio</a></li>
                     <li><a href="nuestra_empresa">Nuestra empresa</a></li>
-                    <li class="drop-down"><a>Servicios</a>
+                    <li class="drop-down"><a>Categorias</a>
                         <ul>
-                            <li><a class="nav-link" href="gas_natural">Gas Natural</a></li>
+                            <li><a class="nav-link" href="gas_natural">servicios</a></li>
                         </ul>
                     </li>
                     <li><a href="contactenos">Contactenos</a></li>

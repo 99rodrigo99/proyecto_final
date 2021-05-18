@@ -27,6 +27,7 @@ class Controller_1 extends CI_Controller {
 	public function index()
 	{
 		$datos_inicio['datos_inicio'] = $this->model_inicio->traer_datos_inicio();
+
 		$this->layout->view('inicio',$datos_inicio);
 
 	}

@@ -71,3 +71,4 @@ $route['admin_nuestra_empresa'] = 'Dashboard/nuestra_empresa';
 $route['admin_servicios'] = 'Dashboard/servicios';
 $route['admin_roles'] = 'Dashboard/roles';
 $route['admin_usuarios'] = 'Dashboard/usuarios';
+$route['admin_categorias'] = 'Dashboard/categorias';
