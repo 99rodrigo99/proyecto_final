@@ -49,26 +49,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Welcome';
+$route['default_controller'] = 'Controller_1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['institucional'] = 'Welcome/institucional';
-$route['galeria'] = 'Welcome/galeria';
-$route['portafolio'] = 'Welcome/portafolio';
-$route['solicitar_servicio'] = 'Welcome/tabla';
+$route['contactenos'] = 'Controller_1/contacto';
+$route['gas_natural'] = 'Controller_1/servicios';
+$route['nuestra_empresa'] = 'Controller_1/nuestra_empresa';
 
 
-$route['Noticias_controller'] = 'Noticias';
+$route['auth_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['noticias'] = 'Noticias/index';
-$route['fotografias'] = 'Noticias/fotografias';
-$route['cartelera'] = 'Noticias/cartelera';
-$route['disponibles'] = 'Noticias/disponibles';
-$route['casos'] = 'Noticias/casos';
+$route['Login'] = 'Auth/Login';
+$route['Register'] = 'Auth/Register';
 
-$route['Galeria_controller'] = 'Galeria';
+$route['Dashboard_controller'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['Galeria'] = 'Galeria/index';
-$route['fotografia1'] = 'Galeria/fotografia1';
+$route['admin_inicio'] = 'Dashboard/inicio';
+$route['admin_nuestra_empresa'] = 'Dashboard/nuestra_empresa';
+$route['admin_servicios'] = 'Dashboard/servicios';
+$route['admin_roles'] = 'Dashboard/roles';
+$route['admin_usuarios'] = 'Dashboard/usuarios';

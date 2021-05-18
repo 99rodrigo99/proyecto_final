@@ -33,13 +33,13 @@ $(document).ready(function () {
     var tocFlip = function(){
         if (getCookie('ciNav') == 'yes') {
             $('#nav2').show();
-            $('#topMenu').remove();
+            $('#topmenu').remove();
             $('body').css({ background: 'none' });
             $('.wy-nav-content-wrap').css({ background: 'none', 'margin-left': 0 });
-            $('.wy-breadcrumbs').append('<div style="float:right;"><div style="float:left;" id="topMenu">' + $('.wy-form').parent().html() + '</div></div>');
+            $('.wy-breadcrumbs').append('<div style="float:right;"><div style="float:left;" id="topmenu">' + $('.wy-form').parent().html() + '</div></div>');
             $('.wy-nav-side').toggle();
         } else {
-            $('#topMenu').remove();
+            $('#topmenu').remove();
             $('#nav').hide();
             $('#nav2').hide();
             $('body').css({ background: '#edf0f2;' });
